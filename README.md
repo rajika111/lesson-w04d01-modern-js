@@ -134,7 +134,18 @@ function whoIsTheBestStudent() {
 Your solution:
 
 ```js
+const addFive = num => 5 + num;
+console.log(addFive(5));
 
+////////
+const divide = (num1, num2) => num1 / num2;
+console.log(divide(20,5));
+///////
+onst whoIsTheBestIA =() => {
+    let iaName = 'Alharthi';
+    console.log(iaName);}
+
+    whoIsTheBestIA();
 ```
 
 ##### Create a function called `fullName`
@@ -227,7 +238,10 @@ instructors.forEach(function(item){
 
     // For each friend in friends, print "Hi friendName!"
     // Write your solution here
-    ```
+
+    friends.forEach(function(element){
+    console.log(`Hi ${element}`);
+    });
 2. Crazy Numbers
     ```js
     // That's an array with crazy numbers we cant read 😯
@@ -236,7 +250,11 @@ instructors.forEach(function(item){
 
     // Sum all the numbers in nums and save the result in total
     // Write your solution here
-    ```
+   nums.forEach(function(num){
+    total += num;
+    });
+    console.log(total);
+
 3. Crazy number again!!
     ```js
     // These crazy numbers now are strings 😯 😯  !!  
@@ -248,7 +266,13 @@ instructors.forEach(function(item){
     // in totalNumbersUnder4000
     //
     // Write your solution here
-    ```
+     stringNumbers.forEach(function(num){
+    let number = Number(num);
+    if(number < 4000)
+    totalNumbersUnder4000 += number; 
+    });
+    
+    console.log(totalNumbersUnder4000);
 
 **Resources:**
 
@@ -272,7 +296,15 @@ The `map()` method creates a new array with the results of calling a provided fu
     let times100 = [];
 
     // Write your solution here
-    ```
+    times100 = nums.map((val, index, arr) => {
+    return val * 100;
+            });
+
+    console.log(nums);
+    console.log(times100);
+    ////// another soultion/////
+    imes100=nums.map(x=>x*100)
+    /////////
 2. Capitalize
     Capitalize all the strings in the IA's array and store them in the array capitalizedIA.
 
@@ -281,7 +313,10 @@ The `map()` method creates a new array with the results of calling a provided fu
     let capitalizedIAs = [];
 
     // Write your solution here
-    ```
+    capitalizedIAs = iAS.map((val, index, arr)=>  val.toUpperCase());
+    console.log(iAS);
+    console.log(capitalizedIAs);
+
 3. Abbreviations
     ```js
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -290,7 +325,13 @@ The `map()` method creates a new array with the results of calling a provided fu
 
     // Find the abbreviation of all days and add them to dayAbbreviations array
     // Write your solution here
-    ```
+    dayAbbreviations = days.map((val, index, arr) => val.substring(0,3));
+    console.log(days);
+    console.log(dayAbbreviations);
+    /////another soultion
+    dayAbbreviations = days.map(item => item.substring(0, 3));
+     console.log(days);
+     console.log(dayAbbreviations);
 4. century20
     ```js
     const years = [1989, 2015, 2000, 1999, 2013, 1973, 2012];
@@ -298,7 +339,10 @@ The `map()` method creates a new array with the results of calling a provided fu
 
     // century20 should be: [1989, 2000, 1999, 1973]
     // Write your solution here
-    ```
+   entury20= years.map(x=>{
+  if(x<=2000)
+    return x
+})
 
 
 ### Filter: Team Study (30 mins)
@@ -317,7 +361,9 @@ The `filter()` method creates a new array with all elements that pass the test i
     const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     // Write your solution here
     console.log(result);
-    ```
+  
+    result=nums.filter(item => item%3===0)
+     console.log(result);
 2. Create an array of names (maybe use 3 of your friends)
 
     Requirements:
@@ -361,6 +407,12 @@ The `reduce()` method executes a reducer function (that you provide) on each ele
 
     console.log(sum);
     ```
+    nums.reduce((x,y)=>sum=x+y)
+    console.log(sum);
+    //////////
+    nums.reduce((accumulator,cuurentValue)=>{
+      return accumlator+cuurentValue;
+    },0);
 2. Crazy Numbers
     ```js
     // Thats an array with crazy numbers we cant read 😯
@@ -370,6 +422,8 @@ The `reduce()` method executes a reducer function (that you provide) on each ele
     // Sum all the numbers in nums and save the result in total
     // Write your solution here
     ```
+    nums.reduce((x,y)=>total=x+y)
+   console.log(total);
 3. Crazy number again!!
     ```js
     // These crazy numbers now are strings 😯 😯  !!  
@@ -382,7 +436,8 @@ The `reduce()` method executes a reducer function (that you provide) on each ele
     //
     // Write your solution here
     ```
-
+  stringNumbers.reduce((x,y)=>totalNumbersUnder4000=Number(x)+Number(y))
+   console.log(totalNumbersUnder4000);
 ### Keep Going
 
 There are a lot of features in ES6 that we have not covered:
@@ -469,7 +524,9 @@ const panagrams = [ 'The','job', 'requires', 'extra', 'pluck', 'and', 'zeal', 'f
 ##### [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 
 - Filter the array for numbers less than 100
+nums.filter(val => val < 100 )
 - Filter words that have an even length
+
 
 ##### [find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 
@@ -486,7 +543,11 @@ const panagrams = [ 'The','job', 'requires', 'extra', 'pluck', 'and', 'zeal', 'f
 
 ##### [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 - Make a new array of each number multiplied by 100
+Newarr = smallNums.map(val => val*100);
+Console.log(Newarr);
 - Make a new array of all the words in all uppercase
+upperCase = panagram.map(val => val.touppercase());
+console.log(upperCase);
 
 ##### [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
 - Add all the numbers in the array together using the `reduce` method
